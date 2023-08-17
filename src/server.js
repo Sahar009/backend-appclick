@@ -17,6 +17,7 @@ const ffmpeg = require('fluent-ffmpeg');
 
 
 const path = require('path');
+const protect = require('../middleware/Authmiddleware');
 const serverPath = path.resolve(__dirname, 'server.js');
 require(serverPath);
 
@@ -45,14 +46,14 @@ app.use('/api/users', userRoute)
 app.use('/api/contactus', contactRoute)
 app.use('/api/editvideo',videoRoute)
 app.use('/api/addwatermark',videoRoute)
-app.use('/api/audio',audioRoute)
+app.use('/api/audio', audioRoute)
 
 
 // error handler
 app.use(errorHandler)
 
 
-//connect to mongoDB and start server
+
 
 
 mongoose.connect('mongodb+srv://akinwumisehinde:XBkrM0wsnkLjUmix@cluster0.csj68ux.mongodb.net/appClick?retryWrites=true&w=majority')
